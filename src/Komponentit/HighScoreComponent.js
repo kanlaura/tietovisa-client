@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class HighScoreComponent extends Component {
-    state = {tulos:tulos};
+    state = {tulos: tulos};
 
     render() {
         const tulokset = this.state.tulos.map(t => (<tr><td>{t.kayttaja}</td><td>{t.score}</td><td>{t.pvm}</td></tr>))
