@@ -10,3 +10,14 @@ export function tarkista(oikein) {
         console.log(oikein);
     }
 }
+
+export function kirjaudu(nimi) {
+    if (! nimi) {
+        console.log('nimi puuttuu');
+        return "nimi puttuu";
+    } else {
+        //lähetä tieto palvelimelle
+        console.log(nimi);
+        return {nimi};
+    }
+}
