@@ -5,8 +5,7 @@ import KysymyksetComponent from './KysymyksetComponent'
 const Etusivu = () => {
     return (
         <div>
-            Etusivu.js
-            <HighScoreComponent />
+            <h1>Visailua</h1>
             <KysymyksetComponent />
         </div>
     );
