@@ -5,6 +5,7 @@ class KysymyksetComponent extends Component {
     state = {kysymys: kysymys};
 
     render() {
+
         return (
             <div className="visailu">
                 <table>
