@@ -7,18 +7,19 @@ class EtusivuComponent extends Component {
    
     render() {
     const  handleChange = (e) => {
-            const nimi =  e.target.value;
-            this.nimi = nimi;
-            console.log(this.nimi);
+        e.preventDefault(e)
+        const nimi =  e.target.value;
+        this.nimi = nimi;
+        console.log(this.nimi);
             
-         }
+    }
         return (
             <div>
-            
             <h1>Visailua</h1>
+            <hr/>
             <p>Haluatko osallistua visailuun? Kirjoita nimimerkkisi ja aloita</p>
-            <p><input value={this.nimi} type="text" placeholder="nimimerkki" onChange={handleChange}/><button onClick={() => kirjaudu(this.nimi)}>Aloita</button></p>
-            <p>{kirjaudu()}</p>
+            <p><input value={this.nimi} type="text" placeholder="nimimerkki" onChange={handleChange}/>
+            <button onClick={() => kirjaudu(this.nimi)}>Aloita</button></p>
         </div>
         );
     }

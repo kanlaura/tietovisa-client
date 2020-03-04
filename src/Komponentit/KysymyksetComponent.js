@@ -8,10 +8,13 @@ class KysymyksetComponent extends Component {
 
         return (
             <div className="visailu">
+                <h1>Visailua</h1>
+                <hr/>
+                <h3>Valitse oikea vaihtoehto</h3>
                 <table>
                     <tbody>
                         <tr>
-                            <td>{this.state.kysymys[0].kys}</td>
+                            <td><b>{this.state.kysymys[0].kys}</b></td>
                         </tr>
                         <tr onClick={() => tarkista(this.state.kysymys[0].vast1.oikein)}>
                             <td>{this.state.kysymys[0].vast1.vast}</td>
