@@ -1,4 +1,6 @@
-
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import KysymyksetComponent from '../Komponentit/KysymyksetComponent';
 //let url = 'http://localhost:;
 
 export function tarkista(oikein) {
@@ -11,13 +13,17 @@ export function tarkista(oikein) {
     }
 }
 
-export function kirjaudu(nimi) {
+export const kirjaudu = (nimi) => {
+
     if (! nimi) {
         console.log('nimi puuttuu');
-        return "nimi puttuu";
+        //ilmoita käyttäjälle nimimerkin puuttuminen
+
+        return <p kirjauduSetInnerHTML="kirjaudu">NIMI PUUTTUU</p>
     } else {
         //lähetä tieto palvelimelle
         console.log(nimi);
-        return {nimi};
+        return <Redirect to="/kysymykset" component={KysymyksetComponent} />
+        
     }
 }
