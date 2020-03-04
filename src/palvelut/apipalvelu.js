@@ -1,5 +1,10 @@
+import React from 'react';
+import  { Redirect } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import axios from 'axios';
 
-//let url = 'http://localhost:;
+let url = 'http://localhost:8000/api/quiz';
+const linkki = "/kysymykset";
 
 export function tarkista(oikein) {
     if(oikein) {
@@ -12,12 +17,20 @@ export function tarkista(oikein) {
 }
 
 export function kirjaudu(nimi) {
-    if (! nimi) {
+    if (!nimi) {
         console.log('nimi puuttuu');
-        return "nimi puttuu";
+        return 
     } else {
-        //lähetä tieto palvelimelle
-        console.log(nimi);
-        return {nimi};
+        //lähetä nimi palvelimelle ja siirry pelisivulle
+        postKayttaja({nimi: nimi});
+        return <Redirect to='/kysymykset'/>
     }
 }
+
+async function postKayttaja(nimi) {
+    //lisää käyttäjä tietokantaan
+    await axios.post(`${url}/kayttajat`, nimi)
+    .then(res => {
+        return res.data;
+    });
+ }

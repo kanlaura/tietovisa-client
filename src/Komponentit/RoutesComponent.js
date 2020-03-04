@@ -9,7 +9,7 @@ class RoutesComponent extends Component {
                 <nav>
                     <span><Link to="/">Etusivu</Link></span> 
                     <span><Link to="/highscore">HighScore</Link></span>
-                    <span><Link to="kysymykset">Kysymykset</Link></span> 
+                    <span><Link to="/kysymykset">Kysymykset</Link></span> 
                 </nav>
             </div>
         );

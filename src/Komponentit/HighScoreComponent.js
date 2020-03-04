@@ -4,9 +4,11 @@ class HighScoreComponent extends Component {
     state = {tulos: tulos};
 
     render() {
-        const tulokset = this.state.tulos.map(t => (<tr><td>{t.kayttaja}</td><td>{t.score}</td><td>{t.pvm}</td></tr>))
+        const tulokset = this.state.tulos.map(t => (<tr key={t.id}><td>{t.kayttaja}</td><td>{t.score}</td><td>{t.pvm}</td></tr>))
         return (
             <div>
+                <h1>Top-10 tulokset</h1>
+                <hr/>
                 <table>
                     <thead>
                         <tr>
