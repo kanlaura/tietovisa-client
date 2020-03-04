@@ -1,7 +1,10 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import KysymyksetComponent from '../Komponentit/KysymyksetComponent';
-//let url = 'http://localhost:;
+import  { Redirect } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import axios from 'axios';
+
+let url = 'http://localhost:8000/api/quiz';
+const linkki = "/kysymykset";
 
 export function tarkista(oikein) {
     if(oikein) {
@@ -13,17 +16,21 @@ export function tarkista(oikein) {
     }
 }
 
-export const kirjaudu = (nimi) => {
-
-    if (! nimi) {
+export function kirjaudu(nimi) {
+    if (!nimi) {
         console.log('nimi puuttuu');
-        //ilmoita käyttäjälle nimimerkin puuttuminen
-
-        return <p kirjauduSetInnerHTML="kirjaudu">NIMI PUUTTUU</p>
+        return 
     } else {
-        //lähetä tieto palvelimelle
-        console.log(nimi);
-        return <Redirect to="/kysymykset" component={KysymyksetComponent} />
-        
+        //lähetä nimi palvelimelle ja siirry pelisivulle
+        postKayttaja({nimi: nimi});
+        return <Redirect to='/kysymykset'/>
     }
 }
+
+async function postKayttaja(nimi) {
+    //lisää käyttäjä tietokantaan
+    await axios.post(`${url}/kayttajat`, nimi)
+    .then(res => {
+        return res.data;
+    });
+ }

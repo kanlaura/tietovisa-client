@@ -6,25 +6,26 @@ import { kirjaudu } from '../palvelut/apipalvelu';
 class EtusivuComponent extends Component {
 
     render() {
-        const handleChange = (e) => {
-            // e=event = käyttäjän syöttämä nimi
-            e.preventDefault(e);
-            const nimi = e.target.value;
-            this.nimi = nimi;
-            console.log(this.nimi);
-
-        }
+    const  handleChange = (e) => {
+        e.preventDefault(e)
+        const nimi =  e.target.value;
+        this.nimi = nimi;
+        console.log(this.nimi);
+        console.log("moi maailma")
+            
+    }
         return (
             <div>
-
-                <h1>Visailua</h1>
-                <p>Haluatko osallistua visailuun? Kirjoita nimimerkkisi ja aloita</p>
-                <p><input value={this.nimi} type="text" placeholder="nimimerkki" onChange={handleChange} /><button onClick={() => kirjaudu(this.nimi)}>Aloita</button></p>
-                <p id="kirjaudu"></p>
-
-            </div>
+            <h1>Visailua</h1>
+            <hr/>
+            <p>Haluatko osallistua visailuun? Kirjoita nimimerkkisi ja aloita</p>
+            <p><input value={this.nimi} type="text" placeholder="nimimerkki" onChange={handleChange}/>
+            <button onClick={() => kirjaudu(this.nimi)}>Aloita</button></p>
+        </div>
         );
     }
 }
+
+
 
 export default EtusivuComponent;
