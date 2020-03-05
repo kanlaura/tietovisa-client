@@ -13,8 +13,8 @@ let uudetPisteet = {
 }
 
 
-export function tarkista(oikein) {
-    if (oikein && pisteet < 5) {
+export async function tarkista(oikein, id) {
+    if (oikein == 'true' && pisteet < 5) {
         //uusi kysymys
         sessionStorage.removeItem('pisteet');
         pisteet = pisteet + 1;
@@ -27,7 +27,7 @@ export function tarkista(oikein) {
             sessionStorage.clear();
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
         } else {
-            let uusikysymys = haeKysymys();
+            let uusikysymys = await haeKysymys(id);
             return uusikysymys;
         }
         // redirect uusikysymys if 5 kysymystä oikein = gameover + post score.abs
@@ -92,8 +92,8 @@ async function postPelitulos(uudetPisteet) {
 }
 
 //Lauran
-export const haeKysymys = async () => {
-    let kysymys = await axios.get(`${url}/kysymykset`)
+export const haeKysymys = async (id) => {
+    let kysymys = await axios.get(`${url}/kysymykset/${id}`)
     return kysymys.data;
 }
 
@@ -102,3 +102,8 @@ export const gameOver = async () => {
 }
 
 
+export const haeKysymysnumberot = async () => {
+    let kysymys = await axios.get(`${url}/kysymysmaara`)
+    // console.log(kysymys.data)
+    return kysymys.data;
+}
