@@ -27,7 +27,8 @@ export function tarkista(oikein) {
             sessionStorage.clear();
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
         } else {
-            haeKysymys();
+            let uusikysymys = haeKysymys();
+            return uusikysymys;
         }
         // redirect uusikysymys if 5 kysymystä oikein = gameover + post score.abs
     } else {
@@ -93,10 +94,11 @@ async function postPelitulos(uudetPisteet) {
 //Lauran
 export const haeKysymys = async () => {
     let kysymys = await axios.get(`${url}/kysymykset`)
-    console.log(kysymys.data);
     return kysymys.data;
 }
 
 export const gameOver = async () => {
     return (window.location.href = "/gameover")
 }
+
+
