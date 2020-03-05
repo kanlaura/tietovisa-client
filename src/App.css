@@ -1,38 +1,88 @@
-.App {
+.Sivu {
+  font-family: monospace;
+  border-radius: 5px;
+  margin: 50px;
+}
+
+.Sivu .navi {
+  border-radius: 5px;
+  background-color: rgba(196, 196, 196, 0.637);
+  padding: 20px;
+}
+
+.Sivu .naviLinkki {
+  font-size: large;
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.Sivu .naviLinkki:hover {
+  color: rgba(0, 0, 0, 0.466);
+}
+
+.Visailua, .Kysymykset, .GameOver {
+  margin: 25px;
+}
+
+.Visailua p, .Kysymykset p, .GameOver p {
+  font-size: larger;
+}
+
+.Visailua input, .Kysymykset input, .GameOver input {
+  margin: 20px 0px 20px 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(196, 196, 196, 0.637);
+}
+
+.Visailua button, .Kysymykset button, .GameOver button {
+  margin: 20px 20px 20px 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(196, 196, 196, 0.637);
+}
+
+.Visailua .kysymysTaulu, .Kysymykset .kysymysTaulu, .GameOver .kysymysTaulu {
+  background-color: rgba(196, 196, 196, 0.637);
+  padding: 5%;
+  border-radius: 16px;
+  min-width: 100%;
+}
+
+.Visailua .kysymysTaulu .kysymysKysymys, .Kysymykset .kysymysTaulu .kysymysKysymys, .GameOver .kysymysTaulu .kysymysKysymys {
+  font-size: larger;
+  background-color: rgba(121, 121, 121, 0.521);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.Visailua .kysymysTaulu .kysymysNappi, .Kysymykset .kysymysTaulu .kysymysNappi, .GameOver .kysymysTaulu .kysymysNappi {
+  font-size: medium;
+  text-align: left;
+  padding: 10px 15px;
+  width: 100%;
+  margin: 0px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgba(194, 194, 194, 0.829);
+}
+
+.Visailua .kysymysTaulu .kysymysNappi:hover, .Kysymykset .kysymysTaulu .kysymysNappi:hover, .GameOver .kysymysTaulu .kysymysNappi:hover {
+  background-color: rgba(85, 131, 146, 0.39);
+}
+
+.PelaajanNimi {
+  font-size: larger;
+}
+
+.GameOver {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.GameOver h2 {
+  padding-top: 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */

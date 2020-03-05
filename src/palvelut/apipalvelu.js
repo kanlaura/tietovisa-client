@@ -34,7 +34,7 @@ export async function tarkista(oikein, id) {
         //game over ja pisteet
         // gameover + post score
             uudetPisteet.nimi = sessionStorage.getItem("1");
-            uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
+            uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet")*18);
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
             gameOver(); //siirrä peli loppui komponenttiin/sivulle

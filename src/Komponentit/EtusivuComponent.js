@@ -15,7 +15,7 @@ class EtusivuComponent extends Component {
             
     }
         return (
-            <div>
+            <div className="Visailua">
             <h1>Visailua</h1>
             <hr/>
             <p>Haluatko osallistua visailuun? Kirjoita nimimerkkisi ja aloita</p>

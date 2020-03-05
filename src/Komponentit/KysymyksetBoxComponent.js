@@ -37,19 +37,19 @@ export default class KysymyksetBoxComponent extends Component {
             return <p>Hetki vielä</p>
         }
         return (
-            <div>
+            <div className="Kysymykset">
                 <h1>Visailua</h1>
                 <hr />
                 {/* <KysymyksetComponent kysymys={this.state.kysymys} /> */}
                 <div className="visailu">
-                    <h3>{this.state.nimi}, valitse oikea vaihtoehto</h3>
-                    <table>
+                    <h3><span className="PelaajanNimi">{this.state.nimi}</span>, valitse oikea vaihtoehto</h3>
+                    <table className="kysymysTaulu">
                         <tbody>
                             <tr>
-                                <td><b>{this.state.kysymys[0].kysymys}</b></td>
+                                <td className="kysymysKysymys"><b>{this.state.kysymys[0].kysymys}</b></td>
                             </tr>
                             {this.state.kysymys[0].vastaukset.map(vastaus => (<tr key={vastaus.id}><td>
-                                <button value={vastaus.oikein} onClick={this.tarkistus}>{vastaus.vastaus}</button>
+                                <button className="kysymysNappi" value={vastaus.oikein} onClick={this.tarkistus}>{vastaus.vastaus}</button>
                             </td></tr>))}
                         </tbody>
                     </table>

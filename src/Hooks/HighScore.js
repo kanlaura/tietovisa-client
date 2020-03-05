@@ -46,30 +46,29 @@ export default function HighScore() {
     const KuukaudenTop5 = score.showtopkk ? < KuukaudenScoret top5kk={score.top5kk} /> : null
     const top20AllTime = score.showtop20 ? < Top20AllTime top20={score.top20} /> : null
 
-    let kysymysIdy = []
-    const generoiKysymys = async () => {
-        if (kysymysIdy.length === 5) {
-            kysymysIdy = []
-            let kysymys = await haeKysymys();
-            kysymysIdy.push(kysymys[0].id)
-        }
-        else if (kysymysIdy.length === 0) {
-            let kysymys = await haeKysymys();
-            kysymysIdy.push(kysymys[0].id)
-        } else {
-            let kysymys = await haeKysymys()
-            if (kysymysIdy[0] === kysymys[0].id || kysymysIdy[1] === kysymys[0].id || kysymysIdy[2] === kysymys[0].id || kysymysIdy[3] === kysymys[0].id || kysymysIdy[4] === kysymys[0].id) { 
-            } else {
-                kysymysIdy.push(kysymys[0].id) 
-            }
-        }
-        console.log(kysymysIdy);
-    }
+    // let kysymysIdy = []
+    // const generoiKysymys = async () => {
+    //     if (kysymysIdy.length === 5) {
+    //         kysymysIdy = []
+    //         let kysymys = await haeKysymys();
+    //         kysymysIdy.push(kysymys[0].id)
+    //     }
+    //     else if (kysymysIdy.length === 0) {
+    //         let kysymys = await haeKysymys();
+    //         kysymysIdy.push(kysymys[0].id)
+    //     } else {
+    //         let kysymys = await haeKysymys()
+    //         if (kysymysIdy[0] === kysymys[0].id || kysymysIdy[1] === kysymys[0].id || kysymysIdy[2] === kysymys[0].id || kysymysIdy[3] === kysymys[0].id || kysymysIdy[4] === kysymys[0].id) { 
+    //         } else {
+    //             kysymysIdy.push(kysymys[0].id) 
+    //         }
+    //     }
+    //     console.log(kysymysIdy);
+    // }
 
     return (
         <div>
             <h1>High scoret</h1>
-            <button type="button" onClick={generoiKysymys}>Kysymys Kiitos</button>
             <button type="button" onClick={naytaTop5}>Top5</button>
             <button type="button" onClick={naytaKKTop5}>Kuukaude top</button>
             <button type="button" onClick={naytaTop20}>Top20</button>

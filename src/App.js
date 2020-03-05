@@ -9,8 +9,8 @@ import GameOverComponent from './Komponentit/GameOverComponent';
 
 function App() {
   return (
-    <Router>
-      <span>
+    <Router >
+      <div className="Sivu">
         <div className="navi">
           <RoutesComponent />
         </div>
@@ -22,7 +22,7 @@ function App() {
             <Route path ="/gameover" component={GameOverComponent} />
           </Switch>
         </div>
-      </span>
+      </div>
     </Router>
   );
 }
