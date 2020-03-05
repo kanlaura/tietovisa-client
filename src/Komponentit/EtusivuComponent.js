@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { kirjaudu } from '../palvelut/apipalvelu';
 // import HighScoreComponent from './HighScoreComponent';
 // import KysymyksetComponent from './KysymyksetComponent'

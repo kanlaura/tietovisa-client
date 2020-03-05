@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import {tarkista} from '../palvelut/apipalvelu';
+var nimi = sessionStorage.getItem("1");
 
 class KysymyksetComponent extends Component {
-    state = {kysymys: kysymys};
+    state = {kysymys: kysymys,
+            nimi: nimi};
+    
 
-    render() {
-        let nimi = sessionStorage.getItem("1");
-
+    render() { 
+         console.log(this.state.nimi)
         //haetaan session storagesta viimeisin syötetty nimi ja syötetään se kenttään näkyviin
 
         return (
             <div className="visailu">
                 <h1>Visailua</h1>
                 <hr/>
-                <h3>{nimi}, valitse oikea vaihtoehto</h3>
+                <h3>{this.state.nimi}, valitse oikea vaihtoehto</h3>
                 <table>
                     <tbody>
                         <tr>
