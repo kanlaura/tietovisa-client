@@ -4,47 +4,50 @@ import moment from 'moment';
 let url = 'http://localhost:8000/api/quiz';
 
 let pisteet = parseInt(sessionStorage.getItem("pisteet"));
- //var nimi = sessionStorage.getItem("1");
+//var nimi = sessionStorage.getItem("1");
 //let pvm = moment(new Date()).format('YYYY-MM-DD');
-let uudetPisteet={
-    nimi : sessionStorage.getItem("1"),
-    pisteet : pisteet,
-    pvm : moment(new Date()).format('YYYY-MM-DD')
+let uudetPisteet = {
+    nimi: sessionStorage.getItem("1"),
+    pisteet: pisteet,
+    pvm: moment(new Date()).format('YYYY-MM-DD')
 }
 
 
 export function tarkista(oikein) {
-    if(oikein && pisteet < 5) {
+    if (oikein && pisteet < 5) {
         //uusi kysymys
         sessionStorage.removeItem('pisteet');
-        pisteet = pisteet+1;
+        pisteet = pisteet + 1;
         sessionStorage.setItem("pisteet", pisteet);
-        if(pisteet === 5) {
+        if (pisteet === 5) {
             uudetPisteet.nimi = sessionStorage.getItem("1");
             uudetPisteet.pisteet = pisteet;
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
+            sessionStorage.clear();
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
         } else {
-        haeKysymys();
+            haeKysymys();
         }
-       // redirect uusikysymys if 5 kysymystä oikein = gameover + post score.abs
+        // redirect uusikysymys if 5 kysymystä oikein = gameover + post score.abs
     } else {
         //game over ja pisteet
         // gameover + post score
-            uudetPisteet.nimi = sessionStorage.getItem("1");
-            uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
-            uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
-            postPelitulos(uudetPisteet);
-            gameOver(); //siirrä peli loppui komponenttiin/sivulle
-        
-    }}
+        uudetPisteet.nimi = sessionStorage.getItem("1");
+        uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
+        uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
+        postPelitulos(uudetPisteet);
+        sessionStorage.clear();
+        gameOver(); //siirrä peli loppui komponenttiin/sivulle
+
+    }
+}
 
 export function kirjaudu(nimi) {
     if (!nimi) {
         console.log('nimi puuttuu');
         sessionStorage.clear();
-        return 
+        return
     } else {
         //lähetä nimi palvelimelle ja siirry pelisivulle
         postKayttaja({ nimi: nimi });
@@ -77,15 +80,15 @@ export const haeAllTimeHighScore = async () => {
 export const haeKuukaudenTimeHighScore = async (kk, yyyy) => {
     let scoret = await axios.get(`${url}/pisteet/${kk}/${yyyy}`)
     return scoret.data;
-} 
+}
 
 async function postPelitulos(uudetPisteet) {
     //lisää käyttäjä tietokantaan
     await axios.post(`${url}/pisteet`, uudetPisteet)
-    .then(res => {
-        return res.data;
-    });
- } 
+        .then(res => {
+            return res.data;
+        });
+}
 
 //Lauran
 export const haeKysymys = async () => {
