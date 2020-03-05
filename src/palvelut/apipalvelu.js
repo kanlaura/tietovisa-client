@@ -52,7 +52,7 @@ export const haeKuukaudenTimeHighScore = async (kk, yyyy) => {
     return scoret.data;
 }
 
-//Niinan lisäykset, hakee tietokannasta kaikki kysymykset
+//Lauran
 export const haeKysymys = async () => {
     let kysymys = await axios.get(`${url}/kysymykset`)
     console.log(kysymys.data);
