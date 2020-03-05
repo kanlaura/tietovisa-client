@@ -2,6 +2,7 @@ import axios from 'axios';
 import moment from 'moment';
 
 let url = 'http://localhost:8000/api/quiz';
+
 let pisteet = parseInt(sessionStorage.getItem("pisteet"));
  //var nimi = sessionStorage.getItem("1");
 //let pvm = moment(new Date()).format('YYYY-MM-DD');
@@ -23,9 +24,9 @@ export function tarkista(oikein) {
             uudetPisteet.pisteet = pisteet;
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
-            window.location.href="/" //siirrä peli loppui komponenttiin/sivulle
+            gameOver(); //siirrä peli loppui komponenttiin/sivulle
         } else {
-        window.location.href="/kysymykset"
+        haeKysymys();
         }
        // redirect uusikysymys if 5 kysymystä oikein = gameover + post score.abs
     } else {
@@ -35,10 +36,9 @@ export function tarkista(oikein) {
             uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
-        window.location.href="/" //siirrä peli loppui komponenttiin/sivulle
+            gameOver(); //siirrä peli loppui komponenttiin/sivulle
         
-    }
-}
+    }}
 
 export function kirjaudu(nimi) {
     if (!nimi) {
@@ -47,32 +47,33 @@ export function kirjaudu(nimi) {
         return 
     } else {
         //lähetä nimi palvelimelle ja siirry pelisivulle
-        postKayttaja({nimi: nimi});
+        postKayttaja({ nimi: nimi });
         sessionStorage.clear();
         sessionStorage.setItem("1", nimi);
         sessionStorage.setItem("pisteet", 0);
         //kerätään käyttäjältä tieto ja laitetaan se sessionstorageen myöhempää käyttöä varten -Oskari
-    return(  window.location.href="/kysymykset" )
-}}
+        return (window.location.href = "/kysymykset")
+    }
+}
 
 async function postKayttaja(nimi) {
     //lisää käyttäjä tietokantaan
     await axios.post(`${url}/kayttajat`, nimi)
-    .then(res => {
-        return res.data;
-    });
- }
-
+        .then(res => {
+            return res.data;
+        });
+}
+//Laura
 export const haeHighScore = async () => {
-     let scoret = await axios.get(`${url}/pisteet`)
-     return scoret.data;
- } 
-
- export const haeAllTimeHighScore = async () => {
+    let scoret = await axios.get(`${url}/pisteet`)
+    return scoret.data;
+}
+//Laura
+export const haeAllTimeHighScore = async () => {
     let scoret = await axios.get(`${url}/kaikkipisteet`)
     return scoret.data;
-} 
-
+}
+//Laura tehnyt
 export const haeKuukaudenTimeHighScore = async (kk, yyyy) => {
     let scoret = await axios.get(`${url}/pisteet/${kk}/${yyyy}`)
     return scoret.data;
@@ -85,3 +86,14 @@ async function postPelitulos(uudetPisteet) {
         return res.data;
     });
  } 
+
+//Lauran
+export const haeKysymys = async () => {
+    let kysymys = await axios.get(`${url}/kysymykset`)
+    console.log(kysymys.data);
+    return kysymys.data;
+}
+
+export const gameOver = async () => {
+    return (window.location.href = "/gameover")
+}
