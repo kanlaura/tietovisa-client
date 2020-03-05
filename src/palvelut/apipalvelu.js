@@ -24,7 +24,6 @@ export async function tarkista(oikein, id) {
             uudetPisteet.pisteet = pisteet;
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
-            sessionStorage.clear();
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
         } else {
             let uusikysymys = await haeKysymys(id);
@@ -34,15 +33,14 @@ export async function tarkista(oikein, id) {
     } else {
         //game over ja pisteet
         // gameover + post score
-        uudetPisteet.nimi = sessionStorage.getItem("1");
-        uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
-        uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
-        postPelitulos(uudetPisteet);
-        sessionStorage.clear();
-        gameOver(); //siirrä peli loppui komponenttiin/sivulle
+            uudetPisteet.nimi = sessionStorage.getItem("1");
+            uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
+            uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
+            postPelitulos(uudetPisteet);
+            gameOver(); //siirrä peli loppui komponenttiin/sivulle
+        
+    }}
 
-    }
-}
 
 export function kirjaudu(nimi) {
     if (!nimi) {
@@ -52,7 +50,6 @@ export function kirjaudu(nimi) {
     } else {
         //lähetä nimi palvelimelle ja siirry pelisivulle
         postKayttaja({ nimi: nimi });
-        sessionStorage.clear();
         sessionStorage.setItem("1", nimi);
         sessionStorage.setItem("pisteet", 0);
         //kerätään käyttäjältä tieto ja laitetaan se sessionstorageen myöhempää käyttöä varten -Oskari
@@ -100,7 +97,10 @@ export const haeKysymys = async (id) => {
 export const gameOver = async () => {
     return (window.location.href = "/gameover")
 }
-
+ export const etusivulle = () => {
+    sessionStorage.clear();
+    return (window.location.href = "/");
+    }
 
 export const haeKysymysnumberot = async () => {
     let kysymys = await axios.get(`${url}/kysymysmaara`)

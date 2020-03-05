@@ -19,9 +19,9 @@ class KysymyksetComponent extends Component {
                         <tr>
                             <td><b>{this.props.kysymys[0].kysymys}</b></td>
                         </tr>
-                        {this.props.kysymys[0].vastaukset.map(vastaus => (<tr key={vastaus.id}><td>
+                         {this.props.kysymys[0].vastaukset.map(vastaus => (<tr key={vastaus.id}><td>
                             <button value={vastaus.oikein} onClick={() => tarkista(vastaus.oikein)}>{vastaus.vastaus}</button>
-                        </td></tr>))}
+                        </td></tr>))} 
                     </tbody>
                 </table>
             </div>
