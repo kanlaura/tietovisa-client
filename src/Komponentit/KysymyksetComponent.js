@@ -1,29 +1,42 @@
 import React, { Component } from 'react';
-import {tarkista} from '../palvelut/apipalvelu';
+import { tarkista } from '../palvelut/apipalvelu';
 
 class KysymyksetComponent extends Component {
-    state = {kysymys: kysymys};
 
     render() {
-        //haetaan session storagesta viimeisin syötetty nimi ja syötetään se kenttään näkyviin
+        if(!this.props.kysymys ) {
+            return <p>Hetki vielä</p>
+        }
         return (
             <div className="visailu">
                 <table>
                     <tbody>
                         <tr>
-                            <td><b>{this.state.kysymys[0].kys}</b></td>
+                            <td><b>{this.props.kysymys.kysymys}</b></td>
                         </tr>
-                        <tr onClick={() => tarkista(this.state.kysymys[0].vast1.oikein)}>
-                            <td>{this.state.kysymys[0].vast1.vast}</td>
+                        <tr>
+                            <td>
+                                <button onClick={() => tarkista(this.props.kysymys.vast1.oikein)}>
+                                    {this.props.kysymys[0].vast1.vast}
+                                </button>
+                            </td>
                         </tr>
-                        <tr onClick={() => tarkista(this.state.kysymys[0].vast2.oikein)}>
-                            <td>{this.state.kysymys[0].vast2.vast}</td>
+                        <tr>
+                            <td>
+                                <button onClick={() => tarkista(this.props.kysymys.vast2.oikein)}>
+                                    {this.props.kysymys[0].vast2.vast}</button>
+                            </td>
                         </tr>
-                        <tr onClick={() => tarkista(this.state.kysymys[0].vast3.oikein)}>
-                            <td>{this.state.kysymys[0].vast3.vast}</td>
+                        <tr>
+                            <td>
+                                <button onClick={() => tarkista(this.props.kysymys.vast3.oikein)}>
+                                    {this.props.kysymys[0].vast3.vast}</button>
+                            </td>
                         </tr>
-                        <tr onClick={() =>tarkista(this.state.kysymys[0].vast4.oikein)}>
-                            <td>{this.state.kysymys[0].vast4.vast}</td>
+                        <tr>
+                            <td>
+                                <button onClick={() => tarkista(this.props.kysymys.vast4.oikein)}>
+                                    {this.props.kysymys[0].vast4.vast}</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -31,22 +44,5 @@ class KysymyksetComponent extends Component {
         );
     }
 }
-
-const kysymys =[{
-    kys_id: 1,
-    kys: 'Kuka sinä olet?',
-    vast1: {
-        vast:'kirja',
-        oikein: true },
-    vast2: {
-        vast: 'koira',
-        oikein: false },
-    vast3: { 
-        vast: 'lehmä',
-        oikein: false },
-    vast4: {
-        vast: 'ihminen',
-        oikein: false }
-  }]
 
 export default KysymyksetComponent;

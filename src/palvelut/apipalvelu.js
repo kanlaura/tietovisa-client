@@ -1,6 +1,6 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { render } from '@testing-library/react';
+// import React from 'react';
+// import { Redirect } from 'react-router-dom';
+// import { render } from '@testing-library/react';
 import axios from 'axios';
 
 let url = 'http://localhost:8000/api/quiz';
@@ -8,10 +8,10 @@ const linkki = "/kysymykset";
 
 export function tarkista(oikein) {
     if (oikein) {
-        //uusi kysymys
+        haeKysymys();
         console.log(oikein);
     } else {
-        //game over ja pisteet
+        gameOver();
         console.log(oikein);
     }
 }
@@ -26,7 +26,7 @@ export function kirjaudu(nimi) {
         sessionStorage.clear();
         sessionStorage.setItem("1", nimi);
         //kerätään käyttäjältä tieto ja laitetaan se sessionstorageen myöhempää käyttöä varten -Oskari
-        return <Redirect to='/kysymykset' />
+        return (window.location.href = "/kysymykset")
     }
 }
 
@@ -54,9 +54,13 @@ export const haeKuukaudenTimeHighScore = async (kk, yyyy) => {
 }
 
 //Niinan lisäykset, hakee tietokannasta kaikki kysymykset
-export function haeKysymykset(callback) {
-    return axios.get(url + linkki)
+export function haeKysymys(callback) {
+    return axios.get(`${url}${linkki}`)
         .then(function (lista) {
-            callback(lista.kysymykset);
+            callback(lista.kysymys);
         })
 };
+
+export const gameOver = async () => {
+    return (window.location.href = "/gameover")
+}

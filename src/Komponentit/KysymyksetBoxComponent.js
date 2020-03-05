@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { haeKysymykset } from '../palvelut/apipalvelu';
+import { haeKysymys } from '../palvelut/apipalvelu';
 import KysymyksetComponent from './KysymyksetComponent';
 
 export default class KysymyksetBoxComponent extends Component {
     state = {
-        kysymykset: [],
+        kysymys: null,
         msg: "Haetaan dataa..."
     };
 
@@ -13,21 +13,21 @@ export default class KysymyksetBoxComponent extends Component {
     };
 
     haeJaPaivita = () => {
-        haeKysymykset(lista => {
-            this.setState({ kysymykset: lista, msg: null });
+        haeKysymys(lista => {
+            this.setState({ kysymys: lista, msg: null });
         });
-    }
+    } 
 
     render() {
-
         let nimi = sessionStorage.getItem("1");
         //haetaan session storagesta viimeisin syötetty nimi ja syötetään se kenttään näkyviin
         return (
             <div>
                 <h1>Visailua</h1>
                 <hr />
-                <h3>Valitse oikea vaihtoehto</h3>
-                <KysymyksetComponent kysymykset={this.state.kysymykset} />
+                <h3>Pelaaja: {nimi} </h3>
+                <h4>Valitse oikea vaihtoehto</h4>
+                <KysymyksetComponent kysymys={this.state.kysymys} />
             </div>
         )
     }
