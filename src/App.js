@@ -3,7 +3,7 @@ import './App.css';
 import EtusivuComponent from './Komponentit/EtusivuComponent';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import RoutesComponent from './Komponentit/RoutesComponent';
-import HighScoreComponent from './Komponentit/HighScoreComponent';
+import HighScoreComponent from './Hooks/HighScore';
 import KysymyksetComponent from './Komponentit/KysymyksetComponent';
 
 function App() {
