@@ -8,9 +8,6 @@ class KysymyksetComponent extends Component {
 
         return (
             <div className="visailu">
-                <h1>Visailua</h1>
-                <hr/>
-                <h3>Valitse oikea vaihtoehto</h3>
                 <table>
                     <tbody>
                         <tr>
