@@ -22,19 +22,14 @@ export function kirjaudu(nimi) {
         return
     } else {
         //lähetä nimi palvelimelle ja siirry pelisivulle
-<<<<<<< HEAD
         postKayttaja({ nimi: nimi });
-        return <Redirect to='/kysymykset' />
-    }
-}
-=======
-        postKayttaja({nimi: nimi});
         sessionStorage.clear();
         sessionStorage.setItem("1", nimi);
         //kerätään käyttäjältä tieto ja laitetaan se sessionstorageen myöhempää käyttöä varten -Oskari
-    return(  window.location.href="/kysymykset" )
-}}
->>>>>>> master
+
+        return <Redirect to='/kysymykset' />
+    }
+}
 
 async function postKayttaja(nimi) {
     //lisää käyttäjä tietokantaan
