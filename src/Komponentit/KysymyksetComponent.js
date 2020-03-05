@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { tarkista } from '../palvelut/apipalvelu';
+import {tarkista} from '../palvelut/apipalvelu';
+var nimi = sessionStorage.getItem("1");
 
 class KysymyksetComponent extends Component {
+    state = {nimi: nimi};
+    
 
-    render() {
+    render() { 
         if (!this.props.kysymys) {
             return <p>Hetki vielä</p>
         }
+
         return (
             <div className="visailu">
+                <h3>{this.state.nimi}, valitse oikea vaihtoehto</h3>
                 <table>
                     <tbody>
                         <tr>
