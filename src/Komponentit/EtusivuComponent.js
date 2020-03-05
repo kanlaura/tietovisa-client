@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { kirjaudu } from '../palvelut/apipalvelu';
 // import HighScoreComponent from './HighScoreComponent';
 // import KysymyksetComponent from './KysymyksetComponent'
 
 class EtusivuComponent extends Component {
-
+   
     render() {
     const  handleChange = (e) => {
         e.preventDefault(e)
         const nimi =  e.target.value;
         this.nimi = nimi;
-        console.log(this.nimi);     
+        console.log(this.nimi);
+            
     }
         return (
             <div>
@@ -23,7 +24,5 @@ class EtusivuComponent extends Component {
         );
     }
 }
-
-
 
 export default EtusivuComponent;
