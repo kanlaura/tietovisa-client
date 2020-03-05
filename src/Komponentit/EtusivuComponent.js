@@ -10,9 +10,7 @@ class EtusivuComponent extends Component {
         e.preventDefault(e)
         const nimi =  e.target.value;
         this.nimi = nimi;
-        console.log(this.nimi);
-        console.log("moi maailma")
-            
+        console.log(this.nimi);     
     }
         return (
             <div>

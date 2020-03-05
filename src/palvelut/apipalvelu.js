@@ -2,9 +2,11 @@ import React from 'react';
 import  { Redirect } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import axios from 'axios';
+import KysymyksetComponent from '../Komponentit/KysymyksetComponent';
 
 let url = 'http://localhost:8000/api/quiz';
 const linkki = "/kysymykset";
+let n;
 
 export function tarkista(oikein) {
     if(oikein) {
@@ -23,9 +25,11 @@ export function kirjaudu(nimi) {
     } else {
         //lähetä nimi palvelimelle ja siirry pelisivulle
         postKayttaja({nimi: nimi});
-        return <Redirect to='/kysymykset'/>
-    }
-}
+        console.log("yritertään redirect");
+        sessionStorage.clear();
+        sessionStorage.setItem("1", nimi);
+    return(  window.location.href="/kysymykset" )
+}}
 
 async function postKayttaja(nimi) {
     //lisää käyttäjä tietokantaan
