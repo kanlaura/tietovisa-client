@@ -24,6 +24,7 @@ export function tarkista(oikein) {
             uudetPisteet.pisteet = pisteet;
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
+            sessionStorage.clear();
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
         } else {
         haeKysymys();
@@ -36,6 +37,7 @@ export function tarkista(oikein) {
             uudetPisteet.pisteet = parseInt(sessionStorage.getItem("pisteet"));
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
+            sessionStorage.clear();
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
         
     }}
