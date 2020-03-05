@@ -38,3 +38,18 @@ async function postKayttaja(nimi) {
         return res.data;
     });
  }
+
+export const haeHighScore = async () => {
+     let scoret = await axios.get(`${url}/pisteet`)
+     return scoret.data;
+ } 
+
+ export const haeAllTimeHighScore = async () => {
+    let scoret = await axios.get(`${url}/kaikkipisteet`)
+    return scoret.data;
+} 
+
+export const haeKuukaudenTimeHighScore = async (kk, yyyy) => {
+    let scoret = await axios.get(`${url}/pisteet/${kk}/${yyyy}`)
+    return scoret.data;
+} 
