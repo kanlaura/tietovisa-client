@@ -4,7 +4,6 @@
 import axios from 'axios';
 
 let url = 'http://localhost:8000/api/quiz';
-const linkki = "/kysymykset";
 
 export function tarkista(oikein) {
     if (oikein) {
@@ -54,12 +53,11 @@ export const haeKuukaudenTimeHighScore = async (kk, yyyy) => {
 }
 
 //Niinan lisäykset, hakee tietokannasta kaikki kysymykset
-export function haeKysymys(callback) {
-    return axios.get(`${url}${linkki}`)
-        .then(function (lista) {
-            callback(lista.kysymys);
-        })
-};
+export const haeKysymys = async () => {
+    let kysymys = await axios.get(`${url}/kysymykset`)
+    console.log(kysymys.data);
+    return kysymys.data;
+}
 
 export const gameOver = async () => {
     return (window.location.href = "/gameover")

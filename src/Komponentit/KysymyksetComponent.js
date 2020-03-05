@@ -4,7 +4,7 @@ import { tarkista } from '../palvelut/apipalvelu';
 class KysymyksetComponent extends Component {
 
     render() {
-        if(!this.props.kysymys ) {
+        if (!this.props.kysymys) {
             return <p>Hetki vielä</p>
         }
         return (
@@ -12,32 +12,11 @@ class KysymyksetComponent extends Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td><b>{this.props.kysymys.kysymys}</b></td>
+                            <td><b>{this.props.kysymys[0].kysymys}</b></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <button onClick={() => tarkista(this.props.kysymys.vast1.oikein)}>
-                                    {this.props.kysymys[0].vast1.vast}
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onClick={() => tarkista(this.props.kysymys.vast2.oikein)}>
-                                    {this.props.kysymys[0].vast2.vast}</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onClick={() => tarkista(this.props.kysymys.vast3.oikein)}>
-                                    {this.props.kysymys[0].vast3.vast}</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onClick={() => tarkista(this.props.kysymys.vast4.oikein)}>
-                                    {this.props.kysymys[0].vast4.vast}</button></td>
-                        </tr>
+                        {this.props.kysymys[0].vastaukset.map(vastaus => (<tr key={vastaus.id}><td>
+                            <button value={vastaus.oikein} onClick={() => tarkista(vastaus.oikein)}>{vastaus.vastaus}</button>
+                        </td></tr>))}
                     </tbody>
                 </table>
             </div>

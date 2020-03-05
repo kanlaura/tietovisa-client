@@ -4,18 +4,17 @@ import KysymyksetComponent from './KysymyksetComponent';
 
 export default class KysymyksetBoxComponent extends Component {
     state = {
-        kysymys: null,
-        msg: "Haetaan dataa..."
+        kysymys: null
     };
 
     componentDidMount = () => {
         this.haeJaPaivita();
     };
 
-    haeJaPaivita = () => {
-        haeKysymys(lista => {
-            this.setState({ kysymys: lista, msg: null });
-        });
+    haeJaPaivita = async () => {
+        let data = await haeKysymys();
+        this.setState({ kysymys: data}
+        );
     } 
 
     render() {
