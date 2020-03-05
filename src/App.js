@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
 import EtusivuComponent from './Komponentit/EtusivuComponent';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import RoutesComponent from './Komponentit/RoutesComponent';
 import HighScoreComponent from './Hooks/HighScore';
-import KysymyksetComponent from './Komponentit/KysymyksetComponent';
+import KysymyksetBoxComponent from './Komponentit/KysymyksetBoxComponent';
+import GameOverComponent from './Komponentit/GameOverComponent';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Switch>
             <Route exact path="/" component={EtusivuComponent} />
             <Route path="/highscore" component={HighScoreComponent} />
-            <Route path ="/kysymykset" component={KysymyksetComponent} />
+            <Route path ="/kysymykset" component={KysymyksetBoxComponent} />
+            <Route path ="/gameover" component={GameOverComponent} />
           </Switch>
         </div>
       </span>
