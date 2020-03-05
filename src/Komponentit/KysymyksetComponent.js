@@ -3,14 +3,14 @@ import {tarkista} from '../palvelut/apipalvelu';
 
 class KysymyksetComponent extends Component {
     state = {kysymys: kysymys};
-
     render() {
 
+       let nimi = sessionStorage.getItem("1");
         return (
             <div className="visailu">
                 <h1>Visailua</h1>
                 <hr/>
-                <h3>Valitse oikea vaihtoehto</h3>
+                <h3>{nimi}, Valitse oikea vaihtoehto</h3>
                 <table>
                     <tbody>
                         <tr>
