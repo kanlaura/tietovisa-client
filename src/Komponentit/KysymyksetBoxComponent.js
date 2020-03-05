@@ -10,7 +10,7 @@ export default class KysymyksetBoxComponent extends Component {
 
     componentDidMount = () => {
         this.haeJaPaivita();
-    }
+    };
 
     haeJaPaivita = () => {
         haeKysymykset(lista => {
@@ -19,13 +19,19 @@ export default class KysymyksetBoxComponent extends Component {
     }
 
     render() {
+
+        let nimi = sessionStorage.getItem("1");
+        //haetaan session storagesta viimeisin syötetty nimi ja syötetään se kenttään näkyviin
         return (
             <div>
                 <h1>Visailua</h1>
-                <hr/>
+                <hr />
                 <h3>Valitse oikea vaihtoehto</h3>
                 <KysymyksetComponent kysymykset={this.state.kysymykset} />
             </div>
         )
     }
 }
+
+
+

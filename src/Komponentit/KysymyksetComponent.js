@@ -5,10 +5,7 @@ class KysymyksetComponent extends Component {
     state = {kysymys: kysymys};
 
     render() {
-        let nimi = sessionStorage.getItem("1");
-
         //haetaan session storagesta viimeisin syötetty nimi ja syötetään se kenttään näkyviin
-
         return (
             <div className="visailu">
                 <table>
