@@ -13,8 +13,8 @@ export default class GameOverComponent extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Kiitos pelaamisesta {nimi}. Pisteesti tällä kertaa: {pisteet}</h2>
+            <div className="GameOver">
+                <h2>Kiitos pelaamisesta {nimi}. <br/> Pisteesti tällä kertaa: {pisteet * 18}</h2>
                 <br></br>
             <button onClick={etusivulle} >ETUSIVULLE</button>
             </div>
