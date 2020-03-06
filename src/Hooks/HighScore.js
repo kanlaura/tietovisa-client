@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { haeHighScore, haeAllTimeHighScore, haeKuukaudenTimeHighScore, haeKysymys } from '../palvelut/apipalvelu';
+import { haeHighScore, haeAllTimeHighScore, haeKuukaudenTimeHighScore } from '../palvelut/apipalvelu';
 import moment from 'moment';
 import KuukaudenScoret from './KuukaudenScoret';
 import Top5AllTime from './Top5AllTime';
@@ -28,6 +28,7 @@ export default function HighScore() {
     //Päivittää highScoren käynnistämällä yläpuolella olevan function--Laura
     useEffect(() => {
         haeScoret()
+        //eslint-disable-next-line
     }, []);
 
     const naytaTop5 = () => {
@@ -71,7 +72,7 @@ export default function HighScore() {
             <h1>High scoret</h1>
             <div className="topNavi">
                 <button className="TopNappi" type="button" onClick={naytaTop5}>Top5</button>
-                <button className="TopNappi" type="button" onClick={naytaKKTop5}>Kuukaude top</button>
+                <button className="TopNappi" type="button" onClick={naytaKKTop5}>Kuukauden Top5</button>
                 <button className="TopNappi" type="button" onClick={naytaTop20}>Top20</button>
             </div>
             <div className="Tulokset">

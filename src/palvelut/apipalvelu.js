@@ -14,7 +14,7 @@ let uudetPisteet = {
 
 
 export async function tarkista(oikein, id) {
-    if (oikein == 'true' && pisteet < 5) {
+    if (oikein === 'true' && pisteet < 5) {
         //uusi kysymys
         sessionStorage.removeItem('pisteet');
         pisteet = pisteet + 1;
@@ -34,7 +34,7 @@ export async function tarkista(oikein, id) {
         //game over ja pisteet
         // gameover + post score
             uudetPisteet.nimi = sessionStorage.getItem("1");
-            uudetPisteet.pisteet = parseInt(75*sessionStorage.getItem("pisteet"));
+            uudetPisteet.pisteet = parseInt(75*(sessionStorage.getItem("pisteet")));
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
             gameOver(); //siirrä peli loppui komponenttiin/sivulle

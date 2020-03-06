@@ -24,6 +24,7 @@ function App() {
             </Switch>
           </div>
         </div>
+        <p className="meitsit">Powered by Laura, Niina, Oskari & Titta</p>
       </div>
     </Router>
   );

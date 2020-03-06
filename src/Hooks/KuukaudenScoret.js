@@ -4,20 +4,20 @@ import moment from 'moment';
 export default function KuukaudenScoret(props) {
     const [score, setScore] = useState({
         top5: props.top5kk,
-        kk: parseInt(moment(new Date).format('MM')),
-        yyyy: parseInt(moment(new Date).format('YYYY'))
+        kk: parseInt(moment(new Date()).format('MM')),
+        yyyy: parseInt(moment(new Date()).format('YYYY'))
     });
 
     // Päivittää highScoren käynnistämällä yläpuolella olevan function--Laura
     useEffect(() => {
         setScore({ ...score, top5: props.top5kk })
-
-    }, [props.top5kk])
+        //eslint-disable-next-line
+    }, [props.top5kk]) 
 
     // console.log(this.props.top5kk)
     return (
         <div>
-            <h1>Kuukauden Top-5 Pisteet</h1>
+            <h1>Tämän kuukauden Top-5 Pisteet</h1>
             <hr />
             <table>
                 <thead>
