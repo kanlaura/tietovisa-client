@@ -4,8 +4,8 @@ import moment from 'moment';
 export default function KuukaudenScoret(props) {
     const [score, setScore] = useState({
         top5: props.top5kk,
-        kk: parseInt(moment(new Date).format('MM')),
-        yyyy: parseInt(moment(new Date).format('YYYY'))
+        kk: parseInt(moment(new Date()).format('MM')),
+        yyyy: parseInt(moment(new Date()).format('YYYY'))
     });
 
     // Päivittää highScoren käynnistämällä yläpuolella olevan function--Laura

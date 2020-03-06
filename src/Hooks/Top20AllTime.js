@@ -4,8 +4,8 @@ import moment from 'moment';
 export default function Top20AllTime(props) {
     const [score, setScore] = useState({
         top: props.top20,
-        kk: parseInt(moment(new Date).format('MM')),
-        yyyy: parseInt(moment(new Date).format('YYYY'))
+        kk: parseInt(moment(new Date()).format('MM')),
+        yyyy: parseInt(moment(new Date()).format('YYYY'))
     });
 
     // Päivittää highScoren käynnistämällä yläpuolella olevan function--Laura

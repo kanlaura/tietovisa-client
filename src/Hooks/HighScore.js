@@ -71,7 +71,7 @@ export default function HighScore() {
             <h1>High scoret</h1>
             <div className="topNavi">
                 <button className="TopNappi" type="button" onClick={naytaTop5}>Top5</button>
-                <button className="TopNappi" type="button" onClick={naytaKKTop5}>Kuukaude top</button>
+                <button className="TopNappi" type="button" onClick={naytaKKTop5}>Kuukauden top</button>
                 <button className="TopNappi" type="button" onClick={naytaTop20}>Top20</button>
             </div>
             <div className="Tulokset">

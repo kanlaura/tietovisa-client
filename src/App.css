@@ -3,6 +3,7 @@
 }
 
 .Sivu {
+  min-width: 230px;
   margin: 3rem;
   font-family: monospace;
   border-radius: 5px;
@@ -39,7 +40,7 @@
 }
 
 .Visailua input, .Kysymykset input, .GameOver input {
-  margin: 20px 0px 20px 20px;
+  margin: 2rem 0rem 2rem 0rem;
   padding: 10px;
   border-radius: 5px;
   border: none;
