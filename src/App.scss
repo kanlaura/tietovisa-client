@@ -1,8 +1,17 @@
-.Sivu {
-font-family: monospace;
-border-radius: 5px;
+* {
+  font-family: monospace;
+}
 
-  margin: 50px;
+.Sivu {
+  margin: 3rem;
+  
+  font-family: monospace;
+  border-radius: 5px;
+  
+  .reuna {
+    padding: 1rem;
+    border: solid 1px rgba(0, 0, 0, 0.281);
+  }
 
   .navi {
     border-radius: 5px;
@@ -46,14 +55,14 @@ border-radius: 5px;
   }
 
   .kysymysTaulu {
-    background-color: rgba(196, 196, 196, 0.637);
-    padding: 5%;
+    background-color: rgba(206, 206, 206, 0.637);
+    padding: 2%;
     border-radius: 16px;
     min-width: 100%;
   
     .kysymysKysymys {
       font-size: larger;
-      background-color: rgba(121, 121, 121, 0.521);
+      background-color: rgba(121, 121, 121, 0.527);
       border-radius: 5px;
       padding: 15px;
     }
@@ -66,7 +75,7 @@ border-radius: 5px;
       margin: 0px;
       border-radius: 5px;
       border: none;
-      background-color: rgba(194, 194, 194, 0.829);
+      background-color: rgba(196, 196, 196, 0.829);
     }
 
     .kysymysNappi:hover {
@@ -87,4 +96,68 @@ border-radius: 5px;
   }
 
   text-align: center;
+}
+
+.HighScoret {
+  .topNavi {
+    display: flex;
+  }
+
+  .TopNappi{
+    // margin: 0px 20px;
+    border: none;
+    // border-radius: 5px;
+    color: black;
+    width: 33%;
+    font-family: monospace;
+    font-size: larger;
+    text-decoration: underline;
+  }
+
+  .TopNappi:hover{
+    background-color: rgba(85, 131, 146, 0.39);
+
+  }
+
+  .Tulokset {
+    text-align: center;
+    
+    table {
+      padding-left: 20px;
+      width: 100%;
+    }
+  }
+  .kayttajaNimi {
+    text-align: left;
+  }
+
+  .topViis:first-of-type {
+    font-size: 2.0rem;
+  }
+
+  .topViis:nth-of-type(2) {
+    font-size: 1.8rem;
+  }
+
+  .topViis:nth-of-type(3) {
+    font-size: 1.6rem;
+  }
+
+  .topViis:nth-of-type(4) {
+    font-size: 1.4rem;
+  }
+
+  .topViis:nth-of-type(5) {
+    font-size: 1.2rem;
+  }
+
+  .topPaiva {
+    font-size: 0.8rem;
+  }
+
+
+}
+
+.topKakskyt {
+  font-size: 1rem;
 }

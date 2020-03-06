@@ -22,11 +22,11 @@ export default function KuukaudenScoret(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Käyttäjä</th><th>Score</th><th>Päivämäärä</th>
+                        <th className="kayttajaNimi">Käyttäjä</th><th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {score.top5.map(t => (<tr key={t.id}><td>{t.nimi}</td><td>{t.pisteet}</td><td>{moment(t.pvm).format('DD.MM.YYYY')}</td></tr>))}
+                    {score.top5.map(t => (<tr className="topViis" key={t.id}><td className="kayttajaNimi">{t.nimi}</td><td>{t.pisteet}</td></tr>))}
                 </tbody>
             </table>
         </div>

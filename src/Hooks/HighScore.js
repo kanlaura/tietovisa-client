@@ -67,14 +67,18 @@ export default function HighScore() {
     // }
 
     return (
-        <div>
+        <div className="HighScoret">
             <h1>High scoret</h1>
-            <button type="button" onClick={naytaTop5}>Top5</button>
-            <button type="button" onClick={naytaKKTop5}>Kuukaude top</button>
-            <button type="button" onClick={naytaTop20}>Top20</button>
-            {top5AllTime}
-            {KuukaudenTop5}
-            {top20AllTime}
+            <div className="topNavi">
+                <button className="TopNappi" type="button" onClick={naytaTop5}>Top5</button>
+                <button className="TopNappi" type="button" onClick={naytaKKTop5}>Kuukaude top</button>
+                <button className="TopNappi" type="button" onClick={naytaTop20}>Top20</button>
+            </div>
+            <div className="Tulokset">
+                {top5AllTime}
+                {KuukaudenTop5}
+                {top20AllTime}
+            </div>
         </div>
     );
 
