@@ -11,7 +11,7 @@ export default function Top20AllTime(props) {
     // Päivittää highScoren käynnistämällä yläpuolella olevan function--Laura
     useEffect(() => {
         setScore({ ...score, top: props.top20 })
-
+        //eslint-disable-next-line
     }, [props.top20])
 
     return (

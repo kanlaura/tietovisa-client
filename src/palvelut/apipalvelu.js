@@ -14,7 +14,7 @@ let uudetPisteet = {
 
 
 export async function tarkista(oikein, id) {
-    if (oikein == 'true' && pisteet < 5) {
+    if (oikein === 'true' && pisteet < 5) {
         //uusi kysymys
         sessionStorage.removeItem('pisteet');
         pisteet = pisteet + 1;

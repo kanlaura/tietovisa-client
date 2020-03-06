@@ -3,8 +3,7 @@
 }
 
 .Sivu {
-  min-width: 230px;
-  margin: 3rem;
+  padding: 1rem;
   font-family: monospace;
   border-radius: 5px;
 }
@@ -14,21 +13,48 @@
   border: solid 1px rgba(0, 0, 0, 0.281);
 }
 
-.Sivu .navi {
+.Sivu .NavBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border-radius: 5px;
   background-color: rgba(196, 196, 196, 0.637);
   padding: 20px;
 }
 
 .Sivu .naviLinkki {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-size: large;
   margin: 10px;
   text-decoration: none;
   color: black;
 }
 
+.Sivu .naviLinkki--right {
+  margin-left: auto;
+  margin-top: 10px;
+  font-size: large;
+  text-decoration: none;
+  color: black;
+}
+
 .Sivu .naviLinkki:hover {
   color: rgba(0, 0, 0, 0.466);
+}
+
+@media only screen and (max-width: 440px) {
+  .Sivu .NavBar,
+  .Sivu .naviLinkki {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .Sivu .naviLinkki--right, .Sivu .naviLinkki {
+    margin-left: 0;
+  }
 }
 
 .Visailua, .Kysymykset, .GameOver {
@@ -97,9 +123,11 @@
 }
 
 .HighScoret .topNavi {
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
 }
 
 .HighScoret .TopNappi {
@@ -113,6 +141,19 @@
 
 .HighScoret .TopNappi:hover {
   background-color: rgba(85, 131, 146, 0.39);
+}
+
+@media only screen and (max-width: 440px) {
+  .HighScoret .topNavi,
+  .HighScoret .TopNappi {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .HighScoret .TopNappi {
+    width: 100%;
+  }
 }
 
 .HighScoret .Tulokset {
@@ -154,5 +195,10 @@
 
 .topKakskyt {
   font-size: 1rem;
+}
+
+.meitsit {
+  margin: 0.85rem;
+  text-align: center;
 }
 /*# sourceMappingURL=App.css.map */
