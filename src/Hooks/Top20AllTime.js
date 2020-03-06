@@ -21,11 +21,11 @@ export default function Top20AllTime(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Käyttäjä</th><th>Score</th><th>Päivämäärä</th>
+                        <th className="kayttajaNimi">Käyttäjä</th><th>Score</th><th>Päivämäärä</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {score.top.map(t => (<tr key={t.id}><td>{t.nimi}</td><td>{t.pisteet}</td><td>{moment(t.pvm).format('DD.MM.YYYY')}</td></tr>))}
+                    {score.top.map(t => (<tr className="topKakskyt" key={t.id}><td className="kayttajaNimi">{t.nimi}</td><td>{t.pisteet}</td><td>{moment(t.pvm).format('DD.MM.YYYY')}</td></tr>))}
                 </tbody>
             </table>
         </div>

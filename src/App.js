@@ -11,16 +11,18 @@ function App() {
   return (
     <Router >
       <div className="Sivu">
-        <div className="navi">
-          <RoutesComponent />
-        </div>
-        <div className="sivu">
-          <Switch>
-            <Route exact path="/" component={EtusivuComponent} />
-            <Route path="/highscore" component={HighScoreComponent} />
-            <Route path ="/kysymykset" component={KysymyksetBoxComponent} />
-            <Route path ="/gameover" component={GameOverComponent} />
-          </Switch>
+        <div className="reuna">
+          <div className="navi">
+            <RoutesComponent />
+          </div>
+          <div className="sivu">
+            <Switch>
+              <Route exact path="/" component={EtusivuComponent} />
+              <Route path="/highscore" component={HighScoreComponent} />
+              <Route path="/kysymykset" component={KysymyksetBoxComponent} />
+              <Route path="/gameover" component={GameOverComponent} />
+            </Switch>
+          </div>
         </div>
       </div>
     </Router>
