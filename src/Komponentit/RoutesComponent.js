@@ -10,6 +10,7 @@ class RoutesComponent extends Component {
                 <nav>
                     <Link className="naviLinkki" to="/" onClick={etusivulle}>Etusivu</Link> 
                     <Link className="naviLinkki" to="/highscore">HighScore</Link>
+                    <a className="naviLinkki" href="https://pelikone.fi/">Lisää pelejä</a>
                 </nav>
             </div>
         );
