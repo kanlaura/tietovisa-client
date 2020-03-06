@@ -21,7 +21,7 @@ export async function tarkista(oikein, id) {
         sessionStorage.setItem("pisteet", pisteet);
         if (pisteet === 5) {
             uudetPisteet.nimi = sessionStorage.getItem("1");
-            uudetPisteet.pisteet = pisteet;
+            uudetPisteet.pisteet = pisteet*75;
             uudetPisteet.pvm = moment(new Date()).format('YYYY-MM-DD');
             postPelitulos(uudetPisteet);
             gameOver(); //siirrä peli loppui komponenttiin/sivulle
