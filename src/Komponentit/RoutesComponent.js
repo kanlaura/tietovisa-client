@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { etusivulle } from '../palvelut/apipalvelu';
 
 
 class RoutesComponent extends Component {
@@ -7,9 +8,8 @@ class RoutesComponent extends Component {
         return (
             <div className="container">
                 <nav>
-                    <span><Link to="/">Etusivu</Link></span> 
-                    <span><Link to="/highscore">HighScore</Link></span>
-                    <span><Link to="/kysymykset">Kysymykset</Link></span> 
+                    <Link className="naviLinkki" to="/" onClick={etusivulle}>Etusivu</Link> 
+                    <Link className="naviLinkki" to="/highscore">HighScore</Link>
                 </nav>
             </div>
         );

@@ -21,11 +21,12 @@ export default function Top5AllTime(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Käyttäjä</th><th>Score</th>
+                        <th className="kayttajaNimi">Käyttäjä</th><th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {score.top.map(t => (<tr key={t.kayttaja_id}><td>{t.nimi}</td><td>{t.maximit}</td></tr>))}
+                    {score.top.map(t => (<tr className="topViis" key={t.kayttaja_id}><td className="kayttajaNimi">{t.nimi}</td><td>{t.maximit}</td></tr>))}
+
                 </tbody>
             </table>
         </div>

@@ -9,20 +9,22 @@ import GameOverComponent from './Komponentit/GameOverComponent';
 
 function App() {
   return (
-    <Router>
-      <span>
-        <div className="navi">
-          <RoutesComponent />
+    <Router >
+      <div className="Sivu">
+        <div className="reuna">
+          <div className="navi">
+            <RoutesComponent />
+          </div>
+          <div className="sivu">
+            <Switch>
+              <Route exact path="/" component={EtusivuComponent} />
+              <Route path="/highscore" component={HighScoreComponent} />
+              <Route path="/kysymykset" component={KysymyksetBoxComponent} />
+              <Route path="/gameover" component={GameOverComponent} />
+            </Switch>
+          </div>
         </div>
-        <div className="sivu">
-          <Switch>
-            <Route exact path="/" component={EtusivuComponent} />
-            <Route path="/highscore" component={HighScoreComponent} />
-            <Route path ="/kysymykset" component={KysymyksetBoxComponent} />
-            <Route path ="/gameover" component={GameOverComponent} />
-          </Switch>
-        </div>
-      </span>
+      </div>
     </Router>
   );
 }

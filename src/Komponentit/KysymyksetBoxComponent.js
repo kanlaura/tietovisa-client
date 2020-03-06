@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { haeKysymys, tarkista } from '../palvelut/apipalvelu';
+import { haeKysymys, tarkista, haeKysymysnumberot } from '../palvelut/apipalvelu';
 // import KysymyksetComponent from './KysymyksetComponent';
 var nimi = sessionStorage.getItem("1");
-
+let kysymysIdy = []
 export default class KysymyksetBoxComponent extends Component {
     state = {
         kysymys: null,
-        nimi: nimi
+        nimi: nimi,
     };
 
     componentDidMount = () => {
@@ -14,15 +14,21 @@ export default class KysymyksetBoxComponent extends Component {
     };
 
     haeJaPaivita = async () => {
-        let data = await haeKysymys();
-        await this.setState({ kysymys: data});
-        console.log(this.state.kysymys)
-    } 
-
+        let kysymykset = await haeKysymysnumberot();
+        for (let i = 0; i < kysymykset.length; i++) {
+            kysymysIdy.push(kysymykset[i].id);
+        }
+        console.log(kysymysIdy)
+        let id = await kysymysIdy.splice(0, 1)
+        let data = await haeKysymys(id);
+        this.setState({ kysymys: data });
+    }
+    
     tarkistus = async (e) => {
-        let uusi = await tarkista(e.target.value)
-        console.log(uusi);
-        this.setState({kysymys: uusi})
+        let arvo = e.target.value
+        let id = await kysymysIdy.splice(0, 1)
+        let uusi = await tarkista(arvo, id)
+        this.setState({ kysymys: uusi })
         return uusi;
     }
 
@@ -31,23 +37,23 @@ export default class KysymyksetBoxComponent extends Component {
             return <p>Hetki vielä</p>
         }
         return (
-            <div>
+            <div className="Kysymykset">
                 <h1>Visailua</h1>
                 <hr />
                 {/* <KysymyksetComponent kysymys={this.state.kysymys} /> */}
                 <div className="visailu">
-                <h3>{this.state.nimi}, valitse oikea vaihtoehto</h3>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><b>{this.state.kysymys[0].kysymys}</b></td>
-                        </tr>
-                        {this.state.kysymys[0].vastaukset.map(vastaus => (<tr key={vastaus.id}><td>
-                            <button value={vastaus.oikein} onClick={this.tarkistus}>{vastaus.vastaus}</button>
-                        </td></tr>))}
-                    </tbody>
-                </table>
-            </div>
+                    <h3><span className="PelaajanNimi">{this.state.nimi}</span>, valitse oikea vaihtoehto</h3>
+                    <table className="kysymysTaulu">
+                        <tbody>
+                            <tr>
+                                <td className="kysymysKysymys"><b>{this.state.kysymys[0].kysymys}</b></td>
+                            </tr>
+                            {this.state.kysymys[0].vastaukset.map(vastaus => (<tr key={vastaus.id}><td>
+                                <button className="kysymysNappi" value={vastaus.oikein} onClick={this.tarkistus}>{vastaus.vastaus}</button>
+                            </td></tr>))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }
